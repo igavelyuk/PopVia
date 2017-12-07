@@ -14,8 +14,8 @@ var Crypto = {
 window.onload=function(){
   console.log('Crypto start');
   var paymentObject=new Object(Crypto);
-  paymentObject.initCrypto();
+  paymentObject.initCrypto;
 
   const button=document.getElementById("sendPayment");
-  button.addEventListener("click",paymentObject.sendPayment(),false);
+  button.addEventListener("click",paymentObject.sendPayment,false);
 }
