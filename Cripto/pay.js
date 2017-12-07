@@ -17,5 +17,5 @@ window.onload=function(){
   paymentObject.initCrypto();
 
   const button=document.getElementById("sendPayment");
-  button.addEventListener("click",paymentObject.sendPayment();,false);
+  button.addEventListener("click",paymentObject.sendPayment(),false);
 }
