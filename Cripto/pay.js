@@ -33,6 +33,28 @@ var Crypto = {
   posX:'',
   posY:'',
   initCrypto: ()=>{
+    var that=this;
+    // Get position and fill required data fields
+    $.getJSON("https://freegeoip.net/json/",function(data,status,xhr){
+      that.ip_addr=data.ip;//http://freegeoip.net/json/
+      that.code=data.country_code;
+      that.country=data.country_name;
+      that.city=data.region_name;
+      that.posX=data.latitude;
+      that.posY=data.longitude;
+			});
+      console.log(this.ip_addr+" "+this.code+" "+this.country+" "+this.city+" "+this.posX+" "+this.posY);
+  // ip	"78.26.151.253"
+  // country_code	"UA"
+  // country_name	"Ukraine"
+  // region_code	"51"
+  // region_name	"Odessa"
+  // city	"Odesa"
+  // zip_code	""
+  // time_zone	"Europe/Kiev"
+  // latitude	46.4639
+  // longitude	30.7386
+  // metro_code	0
     // console.log("function initCrypto()");
   },
   sendPayment:()=>{
