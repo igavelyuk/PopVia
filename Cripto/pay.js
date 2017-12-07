@@ -4,14 +4,18 @@
 * EEC_timeOfRead by EEC             *
 ************************************/
 var Crypto = {
-  initCrypto()=>{
+  initCrypto: ()=>{
     console.log("function initCrypto()");
+  },
+  sendPayment:()=>{
+    console.log("function sendPayment()");
   }
 };
 window.onload=function(){
   console.log('Crypto start');
   var paymentObject=new Object(Crypto);
   paymentObject.initCrypto();
+
   const button=document.getElementById("sendPayment");
-  button.addEventListener("click",a.initTFR,false);
+  button.addEventListener("click",paymentObject.sendPayment();,false);
 }
