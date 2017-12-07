@@ -55,6 +55,9 @@ var Crypto = {
   // latitude	46.4639
   // longitude	30.7386
   // metro_code	0
+  $.getJSON("https://freegeoip.net/json/",function(data,status,xhr){
+    // that.ip_addr=data.ip;//http://freegeoip.net/json/
+    });
     // console.log("function initCrypto()");
   },
   sendPayment:()=>{
