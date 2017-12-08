@@ -1,11 +1,10 @@
 ## PopVia
 ### Usefull code, with section cryptocurrency, and more in future
+[![Twitter](https://img.shields.io/twitter/url/https/github.com/EvilEpicCoder/PopVia.svg?style=social)](https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fgithub.com%2FEvilEpicCoder%2FPopVia)
 [![GitHub issues](https://img.shields.io/github/issues/EvilEpicCoder/PopVia.svg)](https://github.com/EvilEpicCoder/PopVia/issues)
 [![GitHub license](https://img.shields.io/github/license/EvilEpicCoder/PopVia.svg)](https://github.com/EvilEpicCoder/PopVia)
 [![GitHub forks](https://img.shields.io/github/forks/EvilEpicCoder/PopVia.svg)](https://github.com/EvilEpicCoder/PopVia/network)
 [![GitHub stars](https://img.shields.io/github/stars/EvilEpicCoder/PopVia.svg)](https://github.com/EvilEpicCoder/PopVia/stargazers)
-
-[![Twitter](https://img.shields.io/twitter/url/https/github.com/EvilEpicCoder/PopVia.svg?style=social)](https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fgithub.com%2FEvilEpicCoder%2FPopVia)
 [![PopVia](http://img.shields.io/badge/popvia.com-active-orange.svg)](https://popvia.com)
 
 #### 1.Crypto project
