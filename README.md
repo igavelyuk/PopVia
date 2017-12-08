@@ -6,7 +6,7 @@
 [![GitHub stars](https://img.shields.io/github/stars/EvilEpicCoder/PopVia.svg)](https://github.com/EvilEpicCoder/PopVia/stargazers)
 
 [![Twitter](https://img.shields.io/twitter/url/https/github.com/EvilEpicCoder/PopVia.svg?style=social)](https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fgithub.com%2FEvilEpicCoder%2FPopVia)
-[![PopVia](https://img.shields.io/badge/popvia.com-active-orange.svg)](https://popvia.com)
+[![PopVia](http://img.shields.io/badge/popvia.com-active-orange.svg)](https://popvia.com)
 
 #### 1.Crypto project
  * Project created for learn cryptocurrency API
