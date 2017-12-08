@@ -1,0 +1,13 @@
+{
+  "dependencies": {
+    "express": "^4.16.2",
+    "lint": "^1.1.2",
+    "request": "^2.83.0"
+  },
+  "name": "Cripto",
+  "version": "1.0.0",
+  "description": "Bitcoin donate manager",
+  "main": "index.js",
+  "author": "EEC",
+  "license": "MIT"
+}
