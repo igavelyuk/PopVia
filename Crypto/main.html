@@ -13,14 +13,29 @@
           <div class="row">
             <form class="col s12">
               <div class="row">
-                <div class="input-field col s12">
+                <div class="input-field col s12"><!-- start private key receiver-->
                   <input disabled value="a9c62da966b78611c3e9f9babdb9729e00f37bdad7e2fc3dec91410e468dbdc4" id="disabled" type="text" class="validate">
-                  <label for="disabled">Contributing to PopVia (hash text hello to popvia)</label>
+                  <label for="disabled">Contributing to PopVia (hash text: hello to popvia)</label>
                 </div>
-              </div>
+              </div><!-- end private key receiver-->
+              <div class="row"><!-- start private key section -->
+                <div class="input-field col s6">
+                  <input id="wallet" type="text" class="validate" class="materialize-textarea" data-length="64">
+                  <label for="wallet">Your wallet public key</label>
+                </div>
+                <div class="input-field col s3">
+                  <input id="amount" type="number" class="validate">
+                  <label for="amount">Quantity $</label>
+                </div>
+                <div class="input-field col s3">
+                  <input placeholder="Calculated" id="amountBTC" type="number" class="validate">
+                  <label for="amountBTC">Calc in BTC</label>
+                </div>
+              </div><!-- end private key section-->
+
               <div class="row">
                 <div class="input-field col s6">
-                  <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+                  <input id="first_name" type="text" class="validate">
                   <label for="first_name">First Name</label>
                 </div>
                 <div class="input-field col s6">
@@ -40,12 +55,12 @@
                   <label for="email">Your comments:</label>
                 </div>
               </div>
-              <div class="row">
+              <!-- <div class="row">
                 <div class="input-field col s12">
                   <input id="password" type="password" class="validate">
                   <label for="password">Password</label>
                 </div>
-              </div>
+              </div> -->
     </form>
   </div>
   <a id="sendPayment" class="btn light-blue lighten-1 waves-effect waves-light">Test Connection</a>

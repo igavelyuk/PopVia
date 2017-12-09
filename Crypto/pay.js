@@ -2,6 +2,18 @@
 * Project to work with https://gourl.io/ *
 * Pay by EEC for popvia.com              *
 *****************************************/
+$(document).ready(function() {
+   $('input#wallet').characterCounter();
+   $('input#amount')
+   .change(function(){
+     var value = $(this).val();
+     value=parseFloat(value);
+     value = value.toFixed(2)/15800
+     console.log(value);
+     $('input#amountBTC').val(value.toFixed(6));
+     });
+     // .change()
+});
 // http://blockchatin.info/stats?format=json
 // {
 //   "market_price_usd": 15435.86,
