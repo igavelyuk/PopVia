@@ -1,18 +1,18 @@
 /*****************************************
-* Project to work with https://gourl.io/ *
-* Pay by EEC for popvia.com              *
-*****************************************/
+ * Project to work with https://gourl.io/ *
+ * Pay by EEC for popvia.com              *
+ *****************************************/
 $(document).ready(function() {
-   $('input#wallet').characterCounter();
-   $('input#amount')
-   .change(function(){
-     var value = $(this).val();
-     value=parseFloat(value);
-     value = value.toFixed(2)/15800
-     console.log(value);
-     $('input#amountBTC').val(value.toFixed(6));
-     });
-     // .change()
+  $('input#wallet').characterCounter();
+  $('input#amount')
+    .change(function() {
+      var value = $(this).val();
+      value = parseFloat(value);
+      value = value.toFixed(2) / 15800
+      console.log(value);
+      $('input#amountBTC').val(value.toFixed(6));
+    });
+  // .change()
 });
 // http://blockchatin.info/stats?format=json
 // {
@@ -60,15 +60,15 @@ var Crypto = {
   timestamp: "",
   date: "",
   datetime: "",
-  json: "1",// currency data section
-  ip_addr:'',
-  code:'',
-  country:'',
-  city:'',
-  posX:'',
-  posY:'',
-  initCrypto: ()=>{
-    var that=this;
+  json: "1", // currency data section
+  ip_addr: '',
+  code: '',
+  country: '',
+  city: '',
+  posX: '',
+  posY: '',
+  initCrypto: () => {
+    var that = this;
     // Get position and fill required data fields
     // $.getJSON("https://blockchain.info/stats?format=json&callback=?",function(data,status,xhr){
     //   // that.status="connection ok <br> current market_price_usd<br>"
@@ -77,33 +77,35 @@ var Crypto = {
     //   $("#infoBlock1").text(data.market_price_usd);
     //   });
 
-      // var xhttp
-      //   xhttp = new XMLHttpRequest()
-      //   xhttp.onreadystatechange = function () {
-      //     if (this.readyState === 4 && this.status === 200) {
-      //       let tgeo = JSON.parse(this.responseText)
-      //       console.log(tgeo + 'JSON.parse')
-      //       $("#infoBlock1").text(tgeo)
-      //     }
-      //   }
-      //   xhttp.withCredentials = true;
-      //   xhttp.open('GET',"https://blockchain.info/stats?format=json", true)
-      //   xhttp.send()
-//var idiom=$("#infoBlock1").val();
-      $.ajax({
-        type: "GET",
-        url: 'https://blockchain.info/stats',
-        data:{format:'json&callback=?'},
-        async:true,
-        dataType : 'jsonp',   //you may use jsonp for cross origin request
-        crossDomain:true,
-        success: function(data, status, xhr) {
+    // var xhttp
+    //   xhttp = new XMLHttpRequest()
+    //   xhttp.onreadystatechange = function () {
+    //     if (this.readyState === 4 && this.status === 200) {
+    //       let tgeo = JSON.parse(this.responseText)
+    //       console.log(tgeo + 'JSON.parse')
+    //       $("#infoBlock1").text(tgeo)
+    //     }
+    //   }
+    //   xhttp.withCredentials = true;
+    //   xhttp.open('GET',"https://blockchain.info/stats?format=json", true)
+    //   xhttp.send()
+    //var idiom=$("#infoBlock1").val();
+    $.ajax({
+      type: "GET",
+      url: 'https://blockchain.info/stats',
+      data: {
+        format: 'json&callback=?'
+      },
+      async: true,
+      dataType: 'jsonp', //you may use jsonp for cross origin request
+      crossDomain: true,
+      success: function(data, status, xhr) {
         console.log(this.status);
         console.log(this.xhr);
         console.log(this.data);
-          // $("#infoBlock1").val(data);
-            //alert(xhr.getResponseHeader('Host'));
-        }
+        // $("#infoBlock1").val(data);
+        //alert(xhr.getResponseHeader('Host'));
+      }
     });
 
     // $.getJSON("https://freegeoip.net/json/",function(data,status,xhr){
@@ -114,28 +116,28 @@ var Crypto = {
     //   that.posX=data.latitude;
     //   that.posY=data.longitude;
     //   $("#infoBlock").text(that.ip_addr+","+that.code+","+that.country+","+that.city);
-		// 	});
+    // 	});
     //  console.log(this.ip_addr+" "+this.code+" "+this.country+" "+this.city+" "+this.posX+" "+this.posY);
-  // ip	"78.26.151.253"
-  // country_code	"UA"
-  // country_name	"Ukraine"
-  // region_code	"51"
-  // region_name	"Odessa"
-  // city	"Odesa"
-  // zip_code	""
-  // time_zone	"Europe/Kiev"
-  // latitude	46.4639
-  // longitude	30.7386
-  // metro_code	0
+    // ip	"78.26.151.253"
+    // country_code	"UA"
+    // country_name	"Ukraine"
+    // region_code	"51"
+    // region_name	"Odessa"
+    // city	"Odesa"
+    // zip_code	""
+    // time_zone	"Europe/Kiev"
+    // latitude	46.4639
+    // longitude	30.7386
+    // metro_code	0
   },
-  sendPayment:()=>{
+  sendPayment: () => {
 
   }
 };
-window.onload=function(){
+window.onload = function() {
   console.log('Crypto start');
-  var paymentObject=new Object(Crypto);
+  var paymentObject = new Object(Crypto);
   paymentObject.initCrypto();
-  const button=document.getElementById("sendPayment");
-  button.addEventListener("click",paymentObject.sendPayment,false);
+  const button = document.getElementById("sendPayment");
+  button.addEventListener("click", paymentObject.sendPayment, false);
 }
