@@ -41,3 +41,13 @@ http://localhost:3000/merchant/$guid/new_address?password=$main_password&second_
   $main_password Your Main Blockchain wallet password
   $second_password Your second Blockchain Wallet password if double encryption is enabled.
   $label An optional label to attach to this address. It is recommended this is a human readable string e.g. "Order No : 1234". You May use this as a reference to check balance of an order (documented later)
+
+#### Archiving an address
+http://localhost:3000/merchant/$guid/archive_address?password=$main_password&second_password=$second_password&address=$address
+  $main_password Your Main Blockchain wallet password
+  $address The bitcoin address to archive
+
+#### Unarchive an address
+http://localhost:3000/merchant/$guid/unarchive_address?password=$main_password&second_password=$second_password&address=$address
+  $main_password Your Main Blockchain wallet password
+  $address The bitcoin address to unarchive
