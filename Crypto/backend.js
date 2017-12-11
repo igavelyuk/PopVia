@@ -2,15 +2,18 @@ const express = require('express');
 const request = require('request');
 const bodyparser = require('body-parser')
 const bitcore = require('bitcore-lib')
+const key = require('./securityKeys')
 let app = express()
 var backend=()=>{
+  // console.log(key.publicKey);
   // let btcPrice;
   app.use(bodyparser.urlencoded({extended:true}));
   app.use(bodyparser.json());
   app.get("/",(req, res)=>{
-    res.sendFile(__dirname+"/index.html");
+    res.sendFile(__dirname+"/main.html");
   });
-  app.post("/wallet",(req, res)=>{
+  // app.post("/wallet",(req, res)=>{
+  app.post("/transaction",(req, res)=>{
     let brainsrc = req.body.brainsrc;
     let input = new Buffer(brainsrc);
     let hash = bitcore.crypto.Hash.sha256(input)
@@ -18,6 +21,7 @@ var backend=()=>{
     let pk = new bitcore.PrivateKey(bn).toWIF()
     let addr = new bitcore.PrivateKey(bn).toAddress()
     console.log(brainsrc)
+
     res.send("Value for generate keys and address"+ brainsrc+"Personal key hash:"+pk+"hash address:"+addr );
   });
             // request({

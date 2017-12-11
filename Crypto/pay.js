@@ -14,6 +14,7 @@ $(document).ready(function() {
     });
   // .change()
 });
+// essence
 // http://blockchatin.info/stats?format=json
 // {
 //   "market_price_usd": 15435.86,
