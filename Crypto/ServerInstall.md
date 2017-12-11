@@ -8,6 +8,8 @@
  * API services:
   * https://blockchain.info/api/blockchain_wallet_api
   * https://bitfinex.readme.io/v2/docs/rest-public
+ * Info:
+  * Satoshi i.e. divide by 100000000 (8zero)
 ##### 2. Node modules
  * express
  Is a light-weight web application framework to help organize your web application into an MVC architecture on the server side
