@@ -18,7 +18,7 @@ var backend=()=>{
     let pk = new bitcore.PrivateKey(bn).toWIF()
     let addr = new bitcore.PrivateKey(bn).toAddress()
     console.log(brainsrc)
-    res.send("some shit:"+ brainsrc+"some shit1:"+pk+"some shit2:"+addr );
+    res.send("Value for generate keys and address"+ brainsrc+"Personal key hash:"+pk+"hash address:"+addr );
   });
             // request({
             //   url: "https://blockchain.info/stats?format=json",
