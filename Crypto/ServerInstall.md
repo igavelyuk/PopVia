@@ -1,4 +1,4 @@
-## Server side
+## Server install and test
 ### Installation and instructions
 #### Just to not forget some small things and to avoid extra time to find and fix
 
