@@ -12,12 +12,17 @@ var backend=()=>{
   // app.get("/",(req, res)=>{
   //   res.sendFile(__dirname+"/main.html");
   // });
-
-// app.post("/wallet",(req, res)=>{
+  // app.post("/wallet",(req, res)=>{
+  request({
+    url: "https://blockchain.info/stats?format=json",
+    json: true
+  }, function (error, responce, body) {
+    btcPrice = body.market_price_usd;
+  });
   app.use(express.static(__dirname + '/static'));
   app.set('view engine', 'ejs')
   app.get("/",(req, res)=>{
-    res.render("main");
+    res.render("main",{showPrice:btcPrice});
   });
 /****************************
 donationWaletPublicKey
@@ -26,7 +31,7 @@ yourWalletPrivateKey
 ****************************/
 
   app.post("/transaction",(req, res)=>{
-    console.log(req.body.donationWalletPublicKey)
+    //console.log(req.body.donationWalletPublicKey)
     console.log(req.body.yourWalletPublicKey)
     console.log(req.body.yourWalletPrivateKey)
     // let brainsrc = req.body.brainsrc;
@@ -36,15 +41,8 @@ yourWalletPrivateKey
     // let pk = new bitcore.PrivateKey(bn).toWIF()
     ////  let addr = new bitcore.PrivateKey(bn).toAddress()
     // console.log(brainsrc)
-
     // res.send("Value for generate keys and address"+ brainsrc+"Personal key hash:"+pk+"hash address:"+addr );
   });
-            // request({
-            //   url: "https://blockchain.info/stats?format=json",
-            //   json: true
-            // }, function (error, responce, body) {
-            //   btcPrice = body.market_price_usd;
-            // });
 
   // console.log("its a alive!")
   app.get("/",(req, res)=>{
