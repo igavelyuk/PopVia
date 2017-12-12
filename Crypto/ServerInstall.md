@@ -10,7 +10,34 @@
   * https://bitfinex.readme.io/v2/docs/rest-public
  * Info:
   * Satoshi i.e. divide by 100000000 (8zero)
-##### 2. Node modules
+##### 2. First start
+  * Install Git, Node and Yarn (or NPM)
+  ```bash
+  sudo apt-get install -y curl
+  curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+  sudo apt-get install -y nodejs
+  curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+  echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+  sudo apt-get update && sudo apt-get install yarn
+  sudo apt-get install git
+  mkdir Test
+  cd test
+  git clone https://github.com/EvilEpicCoder/PopVia.git
+  ```
+  * Install modules
+  ```bash
+  yarn add express ejs request body-parser bitcore-lib
+  ```
+  * Run
+  ```
+  node index.js
+  ```
+##### 3. Test
+  * Run
+  ```
+  node index.js
+  ```
+##### 4. Node modules
  * express
  Is a light-weight web application framework to help organize your web application into an MVC architecture on the server side
  * request
@@ -25,5 +52,5 @@
  * blockchain-wallet-service
   Is responsible for managing your Blockchain.info wallet. Your application interacts with this service locally via HTTP API calls.
 
-  Version: `0.1a`
-  Date: `11.10.2017`
+  Version: `0.2a`
+  Date: `12.10.2017`

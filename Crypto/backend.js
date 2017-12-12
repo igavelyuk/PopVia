@@ -9,14 +9,18 @@ var backend=()=>{
   // let btcPrice;
   app.use(bodyparser.urlencoded({extended:true}));
   app.use(bodyparser.json());
-  app.get("/",(req, res)=>{
-    res.sendFile(__dirname+"/main.html");
-  });
+  // app.get("/",(req, res)=>{
+  //   res.sendFile(__dirname+"/main.html");
+  // });
 
 // app.post("/wallet",(req, res)=>{
-
+  app.use(express.static(__dirname + '/static'));
+  app.set('view engine', 'ejs')
+  app.get("/",(req, res)=>{
+    res.render("main");
+  });
 /****************************
-donationWalletPublicKey
+donationWaletPublicKey
 yourWalletPublicKey
 yourWalletPrivateKey
 ****************************/
