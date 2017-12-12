@@ -10,7 +10,7 @@ $(document).ready(function() {
       value = parseFloat(value);
       value = value.toFixed(2) / 15800
       console.log(value);
-      $('input#amountBTC').val(value.toFixed(6));
+      $('input#amountBTC').val(value.toFixed(8));
     });
   // .change()
 });
