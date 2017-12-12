@@ -28,14 +28,14 @@
   ```bash
   yarn add express ejs request body-parser bitcore-lib
   ```
-  * Run
-  ```
-  node index.js
-  ```
 #### 3. Test
   * Run
   ```
   node index.js
+  ```
+  Open browser on this address
+  ```
+  localhost:8080
   ```
 #### 4. Node modules
  * express
