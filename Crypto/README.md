@@ -1,8 +1,8 @@
-## Server install and test
-### Installation and instructions
-#### Just to not forget some small things and to avoid extra time to find and fix
+# Server install and test
+## Installation and instructions
+### Just to not forget some small things and to avoid extra time to find and fix
 
-##### 1.Dev environment
+#### 1.Dev environment
  * Node.js
  * Yarn
  * API services:
@@ -10,7 +10,7 @@
   * https://bitfinex.readme.io/v2/docs/rest-public
  * Info:
   * Satoshi i.e. divide by 100000000 (8zero)
-##### 2. First start
+#### 2. First start
   * Install Git, Node and Yarn (or NPM)
   ```bash
   sudo apt-get install -y curl
@@ -32,12 +32,12 @@
   ```
   node index.js
   ```
-##### 3. Test
+#### 3. Test
   * Run
   ```
   node index.js
   ```
-##### 4. Node modules
+#### 4. Node modules
  * express
  Is a light-weight web application framework to help organize your web application into an MVC architecture on the server side
  * request
@@ -52,5 +52,5 @@
  * blockchain-wallet-service
   Is responsible for managing your Blockchain.info wallet. Your application interacts with this service locally via HTTP API calls.
 
-  Version: `0.2a`
+  Version: `0.3a`
   Date: `12.10.2017`
