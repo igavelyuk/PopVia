@@ -20,8 +20,8 @@
   echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
   sudo apt-get update && sudo apt-get install yarn
   sudo apt-get install git
-  mkdir Test
-  cd test
+  mkdir test_folder
+  cd test_folder
   git clone https://github.com/EvilEpicCoder/PopVia.git
   ```
   * Install modules
