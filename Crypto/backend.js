@@ -4,7 +4,7 @@ const bodyparser = require('body-parser')
 const bitcore = require('bitcore-lib')
 const key = require('./securityKeys')
 let app = express()
-var Shared;
+
 function receive(){
 
 }
@@ -21,12 +21,15 @@ function getWalletQuant(currAddr){
   }, function (error, responce, body) {
     // body.final_balance
     // body.n_tx
-    // body.total_received
-    Shared = body.final_balance;
     currA = body.final_balance;
-    currA=parseInt("200");
+    if(currA==='undefined')currA=0;
+    currA=parseInt(currA);
     currB = body.n_tx;
+    if(currB==='undefined')currB=0;
+    currB=parseInt(currB);
     currC = body.total_received;
+    if(currC==='undefined')currC=0;
+    currC=parseInt(currC);
     console.log(toString(currA));
   });
 }
