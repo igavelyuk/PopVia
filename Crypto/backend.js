@@ -16,11 +16,27 @@ function update(){
 function getWalletQuant(){
 
 }
-function getWalletQuant(){
-
+function getWalletQuant(currAddr){
+  request({
+    url: "https://blockchain.info/balance?active="+currAddr,
+    json: true
+  }, function (error, responce, body) {
+    // body.final_balance
+    // body.n_tx
+    // body.total_received
+    currBallance = body;
+    console.log(currBallance);
+  });
 }
 function getExchange(){
-
+  request({
+    // total_received
+    // stats
+    url: "https://blockchain.info/stats?format=json",
+    json: true
+  }, function (error, responce, body) {
+    btcPrice = body.market_price_usd;
+  });
 }
 var backend=()=>{
   // console.log(key.publicKey);
@@ -31,16 +47,12 @@ var backend=()=>{
   //   res.sendFile(__dirname+"/main.html");
   // });
   // app.post("/wallet",(req, res)=>{
-  request({
-    url: "https://blockchain.info/stats?format=json",
-    json: true
-  }, function (error, responce, body) {
-    btcPrice = body.market_price_usd;
-  });
+  getWalletQuant(key.userAddress)
+  getExchange();
   app.use(express.static(__dirname + '/static'));
   app.set('view engine', 'ejs')
   app.get("/",(req, res)=>{
-    res.render("main",{showPrice:btcPrice});
+    res.render("main",{showPrice:btcPrice,});
   });
 /****************************
 donationWaletPublicKey
@@ -63,9 +75,9 @@ yourWalletPrivateKey
   });
 
   // console.log("its a alive!")
-  app.get("/",(req, res)=>{
-    res.send("Current BTC price :" + btcPrice+" $");
-  });
+  // app.get("/",(req, res)=>{
+  //   res.send("Current BTC price :" + btcPrice+" $");
+  // });
   app.listen(8080,function (){
     console.log("Working");
   });
