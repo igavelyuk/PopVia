@@ -7,11 +7,11 @@ $(document).ready(function() {
   .click(function() {
     let anonValue = $(this).val();
     if(anonValue==="on"){
-      $('#anonLabel').text('Click "check" to be Anonimous');
+      $('#anonLabel').text('Click "check" to be Anonymous');
       $('#regFields').toggleClass("class-hidden");
       $(this).val("off");
     }else{
-      $('#anonLabel').text('Click "uncheck" to be Registered');
+      $('#anonLabel').text('Click "uncheck" for Register');
       $('#regFields').toggleClass("class-hidden");
       $(this).val("on");
     }
