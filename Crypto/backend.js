@@ -4,6 +4,24 @@ const bodyparser = require('body-parser')
 const bitcore = require('bitcore-lib')
 const key = require('./securityKeys')
 let app = express()
+function receive(){
+
+}
+function send(){
+
+}
+function update(){
+
+}
+function getWalletQuant(){
+
+}
+function getWalletQuant(){
+
+}
+function getExchange(){
+
+}
 var backend=()=>{
   // console.log(key.publicKey);
   // let btcPrice;
