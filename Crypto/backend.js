@@ -4,6 +4,7 @@ const bodyparser = require('body-parser')
 const bitcore = require('bitcore-lib')
 const key = require('./securityKeys')
 let app = express()
+var Shared;
 function receive(){
 
 }
@@ -11,9 +12,6 @@ function send(){
 
 }
 function update(){
-
-}
-function getWalletQuant(){
 
 }
 function getWalletQuant(currAddr){
@@ -24,8 +22,12 @@ function getWalletQuant(currAddr){
     // body.final_balance
     // body.n_tx
     // body.total_received
-    currBallance = body;
-    console.log(currBallance);
+    Shared = body.final_balance;
+    currA = body.final_balance;
+    currA=parseInt("200");
+    currB = body.n_tx;
+    currC = body.total_received;
+    console.log(toString(currA));
   });
 }
 function getExchange(){
@@ -52,7 +54,7 @@ var backend=()=>{
   app.use(express.static(__dirname + '/static'));
   app.set('view engine', 'ejs')
   app.get("/",(req, res)=>{
-    res.render("main",{showPrice:btcPrice,});
+    res.render("main",{showPrice:btcPrice,cBallance:currA});
   });
 /****************************
 donationWaletPublicKey

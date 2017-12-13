@@ -11,39 +11,39 @@
 
 <body>
   <div class="container center-align margin-auto">
-    <h5 class="background-header text-white">Cripto coin Test <%=showPrice%></h5>
+    <h5 class="background-header text-white">PopVia CryptTwo Test App</h5>
     <div class="row">
       <form method="post" action="/transaction" class="col s12">
         <div class="row">
           <div class="input-field col s12">
             <!-- start private key receiver-->
-            <input name="donationWalletPublicKey" disabled value="ea4f535022ed1f571426799a39e12f267cdc5da4" id="disabled" type="text" class="validate">
-            <label for="disabled">Contributing to PopVia (hash text: hello to popvia)</label>
+            <input name="donationWalletPublicKey" disabled value="1NtTzHjPP83gjRwCn74ohDhgUoTEbMuuUj" id="disabled" type="text" class="validate">
+            <label for="disabled">Contributing to PopVia (test account)</label>
           </div>
         </div>
         <!-- end private key receiver-->
         <div class="row">
           <!-- start private key section -->
           <div class="input-field col s6">
-            <input name="yourWalletPublicKey" id="wallet" type="text" class="validate" class="materialize-textarea" data-length="40">
-            <label for="wallet">Your wallet public key</label>
+            <input name="yourWalletPrivateKey" id="privateKey" type="password" class="validate" class="materialize-textarea" data-length="111">
+            <label for="wallet">Private Key xPub (Confirmation Transaction)</label>
           </div>
-          <div class="input-field col s3">
+          <div class="input-field col s2">
             <input name="amount" id="amount" type="number" class="validate">
             <label for="amount">Quantity $</label>
           </div>
-          <div class="input-field col s3">
+          <div class="input-field col s4">
             <input placeholder="Calculated" id="amountBTC" type="text" class="validate">
-            <label for="amountBTC">Calc in BTC</label>
+            <label for="amountBTC">Calc in BTC, 1 BTC = <b id="showPrice"><%=showPrice%> USD</b></label>
           </div>
         </div>
         <!-- end private key section-->
-        <div class="row">
+        <!-- <div class="row">
           <div class="input-field col s12">
             <input name="yourWalletPrivateKey" id="privateKey" type="password" class="validate">
             <label for="privateKey">Private Key (Confirmation Transaction)</label>
           </div>
-        </div>
+        </div> -->
 
         <!-- <div class="row">
           <div class="input-field col s6">

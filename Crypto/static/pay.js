@@ -3,12 +3,14 @@
  * Pay by EEC for popvia.com              *
  *****************************************/
 $(document).ready(function() {
+  var showPriceVar = $('#showPrice').text();
+  console.log(showPriceVar);
   $('input#wallet').characterCounter();
   $('input#amount')
     .change(function() {
       var value = $(this).val();
       value = parseFloat(value);
-      value = value.toFixed(2) / 15800
+      value = value.toFixed(2) / parseFloat(showPriceVar);
       console.log(value);
       $('input#amountBTC').val(value.toFixed(8));
     });
