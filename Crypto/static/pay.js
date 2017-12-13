@@ -3,12 +3,25 @@
  * Pay by EEC for popvia.com              *
  *****************************************/
 $(document).ready(function() {
+  $('#Anon')
+  .click(function() {
+    let anonValue = $(this).val();
+    if(anonValue==="on"){
+      $('#anonLabel').text('Click "check" to be Anonimous');
+      $('#regFields').toggleClass("class-hidden");
+      $(this).val("off");
+    }else{
+      $('#anonLabel').text('Click "uncheck" to be Registered');
+      $('#regFields').toggleClass("class-hidden");
+      $(this).val("on");
+    }
+
+  });
   var showPriceVar = $('#showPrice').text();
-  console.log(showPriceVar);
   $('input#wallet').characterCounter();
   $('input#amount')
     .change(function() {
-      var value = $(this).val();
+      let value = $(this).val();
       value = parseFloat(value);
       value = value.toFixed(2) / parseFloat(showPriceVar);
       console.log(value);

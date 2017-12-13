@@ -37,16 +37,11 @@
             <label for="amountBTC">Value in BTC, 1 BTC = <b id="showPrice"><%=showPrice%> USD</b></label>
           </div>
         </div>
-
-        <!-- end private key section-->
-        <!-- <div class="row">
-          <div class="input-field col s12">
-            <input name="yourWalletPrivateKey" id="privateKey" type="password" class="validate">
-            <label for="privateKey">Private Key (Confirmation Transaction)</label>
-          </div>
-        </div> -->
-
-        <!-- <div class="row">
+        <div><input type="checkbox" class="filled-in" id="Anon" checked="checked" />
+          <label id="anonLabel" for="Anon">Click &quot;uncheck&quot; to be Registered</label>
+        </div>
+        <br>
+        <div id="regFields" class="row class-hidden">
           <div class="input-field col s6">
             <input id="first_name" type="text" class="validate">
             <label for="first_name">First Name</label>
@@ -55,25 +50,16 @@
             <input id="last_name" type="text" class="validate">
             <label for="last_name">Last Name</label>
           </div>
-        </div>
-        <div class="row">
           <div class="input-field col s12">
             <input id="email" type="email" class="validate">
             <label for="email">Email</label>
           </div>
-        </div>
-        <div class="row">
           <div class="input-field col s12">
-            <input id="email" type="text">
-            <label for="email">Your comments:</label>
+            <input id="comments" type="text">
+            <label for="comments">Your comments:</label>
           </div>
-        </div> -->
-        <!-- <div class="row">
-                <div class="input-field col s12">
-                  <input id="password" type="password" class="validate">
-                  <label for="password">Password</label>
-                </div>
-              </div> -->
+        </div>
+        <br>
         <button id="sendPayment" type="submit" class="btn background-header waves-effect waves-light">Send Donation</button>
       </form>
     </div>
