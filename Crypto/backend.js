@@ -69,6 +69,9 @@ yourWalletPrivateKey
     //console.log(req.body.donationWalletPublicKey)
     console.log(req.body.yourWalletPublicKey)
     console.log(req.body.yourWalletPrivateKey)
+    app.use(express.static(__dirname + '/static'));
+    app.set('view engine', 'ejs')
+    res.render("transaction");
     // let brainsrc = req.body.brainsrc;
     // let input = new Buffer(brainsrc);
     // let hash = bitcore.crypto.Hash.sha256(input)
