@@ -2,8 +2,8 @@ const express = require('express');
 const request = require('request');
 const bodyparser = require('body-parser')
 const bitcore = require('bitcore-lib')
-const btcReq = require('bitcore-request').Insight
-const btcExp = require('bitcore-explorers')
+const btcReq = require('bitcore-request')
+const Insight = require('bitcore-explorers').Insight
 
 const key = require('./securityKeys')
 let app = express()
@@ -14,21 +14,60 @@ function receive(){
 function createNewKey(){
   let randomBuffer = bitcore.crypto.Random.getRandomBuffer(32)
   let randomNumber = bitcore.crypto.BN.fromBuffer(randomBuffer)
+  let address = new bitcore.PrivateKey(randomNumber).toAddress('testnet')
   // for generate address in memory .toAddress() on the server .toAddress('servername')
-  let address = bitcore.crypto.PrivateKey(randomNumber).toAddress('testnet')
+  // 'mzHND2txx6CVL2kicbS4Q1MQDKD71oeukr'
+  // bitcore.PrivateKey('testnet').toWIF()
+  // 'cTLdCAH6FB4pETy4EUESi1EoEdv974ETKGrvVWdeCvbn3okAspD8'
+  let privateKeyWIF = 'cTLdCAH6FB4pETy4EUESi1EoEdv974ETKGrvVWdeCvbn3okAspD8'
+  // backward translation
+  let privateKey = bitcore.PrivateKey.fromWIF(privateKeyWIF)
+  // let privateKey = bitcore.PrivateKey.fromWIF('cTLdCAH6FB4pETy4EUESi1EoEdv974ETKGrvVWdeCvbn3okAspD8')
+  let addressTwo = privateKey.toAddress()
+  // let addressTwo = privateKey.toAddress()
+  // console.log(addressTwo); 'n23iqtgwjkdxy5SfRBHFdxtfiHBy3ioAJS'
+  // going to testnet - https://testnet.manu.backend.hamburg/faucet
+// API RECEIVE
+  // Sent! TX ID: af71ab0002644f8624fb5acdd6f99dad63ec93bd904376cac4741c562e61560c
+//--------------------------------------------------------------------------------------
+let randomBuffer2 = new Buffer('azaza celui pipisku')
+let randomHash = bitcore.crypto.Hash.sha256(randomBuffer2)
+let randomNumber2 = bitcore.crypto.BN.fromBuffer(randomHash)
+let address2 = new bitcore.PrivateKey(randomNumber2,'testnet').toAddress()
+// address2 = mjrkPLtquuuq6h3CN7P5AKbXUukJRvuaoM
+// for generate address in memory .toAddress() on the server .toAddress('servername')
+// 'mzHND2txx6CVL2kicbS4Q1MQDKD71oeukr'
+// bitcore.PrivateKey('testnet').toWIF()
+// 'cTLdCAH6FB4pETy4EUESi1EoEdv974ETKGrvVWdeCvbn3okAspD8'
+let privateKeyWIF = 'cTLdCAH6FB4pETy4EUESi1EoEdv974ETKGrvVWdeCvbn3okAspD8'
+// backward translation
+let privateKey = bitcore.PrivateKey.fromWIF(privateKeyWIF)
+// let privateKey = bitcore.PrivateKey.fromWIF('cTLdCAH6FB4pETy4EUESi1EoEdv974ETKGrvVWdeCvbn3okAspD8')
+let addressTwo = privateKey.toAddress()
 
   return address
 }
-function send(){
+function checkBallance(){
 let insight = new Insight('testnet')
 insight.getUnspentUtxos(address, function (res, utxos){
-  if(error){
+  if(err){
     // catch errors here
   }else{
     // Use utxos to  create transmission
     console.log(utxos)
   }
 })
+//---------------------------------
+/**************************************
+insight.getUnspentUtxos('mzHND2txx6CVL2kicbS4Q1MQDKD71oeukr', function (res, utxos){
+  if(err){
+    // catch errors here
+  }else{
+    // Use utxos to  create transmission
+    console.log(utxos)
+  }
+})
+***************************************/
 
 }
 function update(){
