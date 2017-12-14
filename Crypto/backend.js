@@ -9,7 +9,11 @@ function receive(){
 
 }
 function send(){
-
+  request({
+    url: "https://blockchain.info/rawtx/"+currHash,
+    json: true
+  }, function (error, responce, body) {
+  });
 }
 function update(){
 
