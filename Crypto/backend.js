@@ -2,18 +2,34 @@ const express = require('express');
 const request = require('request');
 const bodyparser = require('body-parser')
 const bitcore = require('bitcore-lib')
+const btcReq = require('bitcore-request').Insight
+const btcExp = require('bitcore-explorers')
+
 const key = require('./securityKeys')
 let app = express()
-
+var testnetPK='cTqrh37MoKmNrk1kxGRs5sMYsnXiCLQ5XgVB6eKthmSbxnQ5JiQu';
 function receive(){
 
 }
+function createNewKey(){
+  let randomBuffer = bitcore.crypto.Random.getRandomBuffer(32)
+  let randomNumber = bitcore.crypto.BN.fromBuffer(randomBuffer)
+  // for generate address in memory .toAddress() on the server .toAddress('servername')
+  let address = bitcore.crypto.PrivateKey(randomNumber).toAddress('testnet')
+
+  return address
+}
 function send(){
-  request({
-    url: "https://blockchain.info/rawtx/"+currHash,
-    json: true
-  }, function (error, responce, body) {
-  });
+let insight = new Insight('testnet')
+insight.getUnspentUtxos(address, function (res, utxos){
+  if(error){
+    // catch errors here
+  }else{
+    // Use utxos to  create transmission
+    console.log(utxos)
+  }
+})
+
 }
 function update(){
 
