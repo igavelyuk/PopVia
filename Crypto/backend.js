@@ -55,6 +55,9 @@ let privateKey = bitcore.PrivateKey.fromWIF('cTLdCAH6FB4pETy4EUESi1EoEdv974ETKGr
 
 let insight = new Insight('testnet')
 insight.getUnspentUtxos(address, function (res, utxos){
+  if(err){
+    // catch errors here
+  }else{
     // Use utxos to  create transmission
     console.log(utxos)
     let tx = bitcore.Transaction()
@@ -77,7 +80,7 @@ insight.getUnspentUtxos(address, function (res, utxos){
     // console.log('Transaction\n\n');
     // console.log(tx.toObject());
     // tx.serialize()
-
+  }
 })
 //---------------------------------
 /**************************************
