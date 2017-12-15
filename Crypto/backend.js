@@ -30,6 +30,7 @@ function createNewKey(){
 // API RECEIVE
   // Sent! TX ID: af71ab0002644f8624fb5acdd6f99dad63ec93bd904376cac4741c562e61560c
 //--------------------------------------------------------------------------------------
+// testing another path to generate hash
 let randomBuffer2 = new Buffer('azaza celui pipisku')
 let randomHash = bitcore.crypto.Hash.sha256(randomBuffer2)
 let randomNumber2 = bitcore.crypto.BN.fromBuffer(randomHash)
@@ -48,25 +49,39 @@ let addressTwo = privateKey.toAddress()
   return address
 }
 function checkBallance(){
+var address = 'n23iqtgwjkdxy5SfRBHFdxtfiHBy3ioAJS'
+var address2 = 'mjrkPLtquuuq6h3CN7P5AKbXUukJRvuaoM'
+let privateKey = bitcore.PrivateKey.fromWIF('cTLdCAH6FB4pETy4EUESi1EoEdv974ETKGrvVWdeCvbn3okAspD8')
+
 let insight = new Insight('testnet')
 insight.getUnspentUtxos(address, function (res, utxos){
-  if(err){
-    // catch errors here
-  }else{
     // Use utxos to  create transmission
     console.log(utxos)
-  }
+    let tx = bitcore.Transaction()
+    tx.from(utxos)
+    tx.to(address2,10000)
+    tx.change(address)
+    tx.fee(50000)
+    tx.sign(privateKey)
+    console.log('Transaction\n\n');
+    console.log(tx.toObject());
+    tx.serialize()
+    //--------------------------------------------------------------------
+    // console.log(utxos)
+    // let tx = bitcore.Transaction()
+    // tx.from(utxos)
+    // tx.to(address2,10000)
+    // tx.change(address)
+    // tx.fee(50000)
+    // tx.sign(privateKey)
+    // console.log('Transaction\n\n');
+    // console.log(tx.toObject());
+    // tx.serialize()
+
 })
 //---------------------------------
 /**************************************
-insight.getUnspentUtxos('mzHND2txx6CVL2kicbS4Q1MQDKD71oeukr', function (res, utxos){
-  if(err){
-    // catch errors here
-  }else{
-    // Use utxos to  create transmission
-    console.log(utxos)
-  }
-})
+insight.getUnspentUtxos('mjrkPLtquuuq6h3CN7P5AKbXUukJRvuaoM', function (res, utxos){console.log(utxos)})
 ***************************************/
 
 }
