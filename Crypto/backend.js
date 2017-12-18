@@ -2,7 +2,7 @@ const express = require('express');
 const request = require('request');
 const bodyparser = require('body-parser')
 const bitcore = require('bitcore-lib')
-const btcReq = require('bitcore-request')
+// const btcReq = require('bitcore-request')
 const Insight = require('bitcore-explorers').Insight
 
 const key = require('./securityKeys')
@@ -21,7 +21,7 @@ function createNewKey(){
   // 'cTLdCAH6FB4pETy4EUESi1EoEdv974ETKGrvVWdeCvbn3okAspD8'
   let privateKeyWIF = 'cTLdCAH6FB4pETy4EUESi1EoEdv974ETKGrvVWdeCvbn3okAspD8'
   // backward translation
-  let privateKey = bitcore.PrivateKey.fromWIF(privateKeyWIF)
+  let privateKey = bitcore.PrivateKey.fromWIF(privateKeyWIF) // abc8611f89f897da6b3231c58e4813bd1a373ba3f1719a9cc139e4b5d0dc9f48
   // let privateKey = bitcore.PrivateKey.fromWIF('cTLdCAH6FB4pETy4EUESi1EoEdv974ETKGrvVWdeCvbn3okAspD8')
   let addressTwo = privateKey.toAddress()
   // let addressTwo = privateKey.toAddress()
@@ -84,7 +84,9 @@ insight.getUnspentUtxos(address, function (res, utxos){
 })
 //---------------------------------
 /**************************************
-insight.getUnspentUtxos('mjrkPLtquuuq6h3CN7P5AKbXUukJRvuaoM', function (res, utxos){console.log(utxos)})
+insight.getUnspentUtxos('n23iqtgwjkdxy5SfRBHFdxtfiHBy3ioAJS', function (res, utxos){console.log(utxos)})
+
+<UnspentOutput: af71ab0002644f8624fb5acdd6f99dad63ec93bd904376cac4741c562e61560c:0, satoshis: 130000000, address: n23iqtgwjkdxy5SfRBHFdxtfiHBy3ioAJS> ]
 ***************************************/
 
 }
