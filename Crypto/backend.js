@@ -67,7 +67,7 @@ function getWalletQuant(currAddr){
     console.log(toString(currA));
   });
 }
-function getExchange(){
+function getExchangeRate(){
   request({
     // total_received
     // stats
@@ -87,7 +87,7 @@ var backend=()=>{
   // });
   // app.post("/wallet",(req, res)=>{
   getWalletQuant(key.userAddress)
-  getExchange();
+  getExchangeRate();
   app.use(express.static(__dirname + '/static'));
   app.set('view engine', 'ejs')
   app.get("/",(req, res)=>{
@@ -114,6 +114,14 @@ yourWalletPrivateKey
     ////  let addr = new bitcore.PrivateKey(bn).toAddress()
     // console.log(brainsrc)
     // res.send("Value for generate keys and address"+ brainsrc+"Personal key hash:"+pk+"hash address:"+addr );
+  });
+  app.get("/error",(req, res)=>{
+    //console.log(req.body.donationWalletPublicKey)
+    console.log(req.body.yourWalletPublicKey)
+    console.log(req.body.yourWalletPrivateKey)
+    app.use(express.static(__dirname + '/static'));
+    app.set('view engine', 'ejs')
+    res.render("error");
   });
 
   // console.log("its a alive!")
