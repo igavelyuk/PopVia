@@ -3,8 +3,7 @@
 var bitcore = require('bitcore-lib')
 let Insight = require('bitcore-explorers').Insight
 
-var sendBTC = function (SenderPrivateKey, SenderAddress, ReceiverAddress, Amount) //adresses in string format
-{
+var send = (SenderPrivateKey, SenderAddress, ReceiverAddress, Amount) => { //adresses in string format
 	SenderPrivateKey = new bitcore.PrivateKey(SenderPrivateKey,'testnet');
 	ReceiverAddress = new bitcore.Address(ReceiverAddress,'testnet');
 	SenderAddress = SenderPrivateKey.toAddress();
@@ -21,7 +20,7 @@ var sendBTC = function (SenderPrivateKey, SenderAddress, ReceiverAddress, Amount
 		} else {
 			var tx = bitcore.Transaction();
 			tx.from(utxos);
-			tx.to(ReceiverAddress, 50000);
+			tx.to(ReceiverAddress, 800000);
 			tx.change(SenderAddress);
 			tx.sign(SenderPrivateKey);
 			serializedStr = tx.serialize(); // not mentioned in documentation
@@ -38,4 +37,4 @@ var sendBTC = function (SenderPrivateKey, SenderAddress, ReceiverAddress, Amount
 	});
 }
 // (SenderPrivateKey, SenderAddress, ReceiverAddress, Amount
-sendBTC('abc8611f89f897da6b3231c58e4813bd1a373ba3f1719a9cc139e4b5d0dc9f48','n23iqtgwjkdxy5SfRBHFdxtfiHBy3ioAJS','mzHND2txx6CVL2kicbS4Q1MQDKD71oeukr',0)
+send('abc8611f89f897da6b3231c58e4813bd1a373ba3f1719a9cc139e4b5d0dc9f48','n23iqtgwjkdxy5SfRBHFdxtfiHBy3ioAJS','mzHND2txx6CVL2kicbS4Q1MQDKD71oeukr',0)
