@@ -14,26 +14,11 @@ var sendBTC = function (SenderPrivateKey, SenderAddress, ReceiverAddress, Amount
 
   // let Insight = require('bitcore-explorers').Insight
   let insight = new Insight('testnet');
-	insight.getUnspentUtxos(SenderAddress, function(err, utxos) {
-    var serializedStr;
+	insight.getUnspentUtxos(ReceiverAddress, function(err, utxos) {
 		if (err) {
 			console.log(err);
 		} else {
-			var tx = bitcore.Transaction();
-			tx.from(utxos);
-			tx.to(ReceiverAddress, 50000);
-			tx.change(SenderAddress);
-			tx.sign(SenderPrivateKey);
-			serializedStr = tx.serialize(); // not mentioned in documentation
-			console.log(serializedStr);
-			insight.broadcast(serializedStr, function(err, txId) {
-				if (err) {
-					console.log('Error!:'+err);
-				} else {
-					console.log('Successfully sent: '+txId);
-				}
-			});
-
+			console.log(utxos);
 		}
 	});
 }
