@@ -84,11 +84,14 @@ var backend=()=>{
   app.post("/transaction",(req, res)=>{
     //console.log(req.body.donationWalletPublicKey)
     console.log(req.body.privateKeyMain) //
-    console.log(req.body.sendAddrMain)
-		console.log(req.body.receiveAddrMain)
-		console.log(req.body.amount) //  
-		console.log(req.body.amountBTC)
-		console.log('Completed -------------')
+		key.privateKey = req.body.privateKeyMain;
+    // console.log(req.body.sendAddrMain)
+		// console.log(req.body.receiveAddrMain)
+		console.log(req.body.amount) //
+		key.quantity = req.body.amount;
+		// console.log(req.body.amountBTC)
+		send(key.privateKey, key.sendAddr, key.receiveAddr, key.quantity);
+		console.log('Completed sending')
     app.use(express.static(__dirname + '/static'));
     app.set('view engine', 'ejs')
     res.render("transaction");
@@ -110,7 +113,6 @@ var backend=()=>{
     app.set('view engine', 'ejs')
     res.render("error");
   });
-
   // console.log("its a alive!")
   // app.get("/",(req, res)=>{
   //   res.send("Current BTC price :" + btcPrice+" $");
