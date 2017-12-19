@@ -2,25 +2,14 @@ const express = require('express');
 const request = require('request');
 const bodyparser = require('body-parser')
 const bitcore = require('bitcore-lib')
-// const btcReq = require('bitcore-request')
-// const Insight = require('bitcore-explorers').Insight
 let Insight = require('bitcore-explorers').Insight
 const key = require('./securityKeys')
 let app = express()
-//var testnetPK='cTqrh37MoKmNrk1kxGRs5sMYsnXiCLQ5XgVB6eKthmSbxnQ5JiQu';
-
-// var bitcore = require('bitcore')
-// const btcReq = require('bitcore-request')
-//var bitcore = require('bitcore-lib')
 
 var send = (privateKey, sendAddr, receiveAddr, quantity) => { //adresses in string format
 	privateKey = new bitcore.PrivateKey(privateKey,'testnet');
 	receiveAddr = new bitcore.Address(receiveAddr,'testnet');
 	sendAddr = privateKey.toAddress();
-	// console.log(privateKey);
-	// console.log(sendAddr);
-	// console.log(receiveAddr);
-  // let Insight = require('bitcore-explorers').Insight
   let insight = new Insight('testnet');
 	insight.getUnspentUtxos(sendAddr, function(err, utxos) {
     var serializedStr;
@@ -45,12 +34,10 @@ var send = (privateKey, sendAddr, receiveAddr, quantity) => { //adresses in stri
 		}
 	});
 }
-// (SenderPrivateKey, sendAddr, receiveAddr, Amount
-// send('abc8611f89f897da6b3231c58e4813bd1a373ba3f1719a9cc139e4b5d0dc9f48','n23iqtgwjkdxy5SfRBHFdxtfiHBy3ioAJS','mzHND2txx6CVL2kicbS4Q1MQDKD71oeukr',0)
-
-function getWalletQuant(currAddr){
+function getWalletQuant(srvURL, currAddr){
+	srvURL = "https://blockchain.info/balance?active=";
   request({
-    url: "https://blockchain.info/balance?active="+currAddr,
+    url: srvURL + currAddr,
     json: true
   }, function (error, responce, body) {
     // body.final_balance
@@ -67,11 +54,12 @@ function getWalletQuant(currAddr){
     console.log(toString(currA));
   });
 }
-function getExchangeRate(){
+function getExchangeRate(srvURL){
+	srvURL = "https://blockchain.info/stats?format=json";
   request({
     // total_received
     // stats
-    url: "https://blockchain.info/stats?format=json",
+    url: srvURL,
     json: true
   }, function (error, responce, body) {
     btcPrice = body.market_price_usd;
@@ -93,19 +81,18 @@ var backend=()=>{
   app.get("/",(req, res)=>{
     res.render("main",{showPrice:btcPrice,cBallance:currA});
   });
-/****************************
-donationWaletPublicKey
-yourWalletPublicKey
-yourWalletPrivateKey
-****************************/
-
   app.post("/transaction",(req, res)=>{
     //console.log(req.body.donationWalletPublicKey)
-    console.log(req.body.yourWalletPublicKey)
-    console.log(req.body.yourWalletPrivateKey)
+    console.log(req.body.privateKeyMain) //
+    console.log(req.body.sendAddrMain)
+		console.log(req.body.receiveAddrMain)
+		console.log(req.body.amount) //  
+		console.log(req.body.amountBTC)
+		console.log('Completed -------------')
     app.use(express.static(__dirname + '/static'));
     app.set('view engine', 'ejs')
     res.render("transaction");
+
     // let brainsrc = req.body.brainsrc;
     // let input = new Buffer(brainsrc);
     // let hash = bitcore.crypto.Hash.sha256(input)
