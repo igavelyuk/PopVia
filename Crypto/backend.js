@@ -89,6 +89,8 @@ var backend=()=>{
 		// console.log(req.body.receiveAddrMain)
 		console.log(req.body.amount) //
 		key.quantity = req.body.amount;
+		key.quantity = parseInt((key.quantity/btcPrice)*10000000);
+		console.log("Converted"+key.quantity+"---------") //
 		// console.log(req.body.amountBTC)
 		send(key.privateKey, key.sendAddr, key.receiveAddr, key.quantity);
 		console.log('Completed sending')
