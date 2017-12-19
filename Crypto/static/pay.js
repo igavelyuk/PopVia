@@ -1,5 +1,5 @@
 /*****************************************
- * Project to work with https://gourl.io/ *
+ * Project to work with                   *
  * Pay by EEC for popvia.com              *
  *****************************************/
 $(document).ready(function() {
