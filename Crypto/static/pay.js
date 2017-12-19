@@ -3,10 +3,8 @@
  * Pay by EEC for popvia.com              *
  *****************************************/
 $(document).ready(function() {
-
-
 $('#sendPayment').addClass('disabled');
-
+$('input#privateKeyMain').keyup(()=>SecurityCheck());
   $('#Anon')
   .click(function() {
     let anonValue = $(this).val();
@@ -29,24 +27,24 @@ $('#sendPayment').addClass('disabled');
       value = value.toFixed(2) / parseFloat(showPriceVar);
       console.log(value);
       $('input#amountBTC').val(value.toFixed(8));
-
-      var firstCheck = $('#amount').val();
-      var secondCheck = $('#amountBTC').val();
-      var thirdCheck  = $('#privateKeyMain').val();
-
-
-      console.log(x);
-      console.log(firstCheck);
-      console.log(secondCheck);
-      console.log(thirdCheck.length+"---------");
-      if(firstCheck>10&&thirdCheck.length>63){
-        $('#sendPayment').removeClass("disabled");
-      }else{
-        $('#sendPayment').addClass('disabled');
-      }
+      SecurityCheck();
     });
 });
 
+var SecurityCheck = () => {
+  var firstCheck = $('#amount').val();
+  var secondCheck = $('#amountBTC').val();
+  var thirdCheck  = $('#privateKeyMain').val();
+  // console.log(x);
+  // console.log(firstCheck);
+  // console.log(secondCheck);
+  // console.log(thirdCheck.length+"---------");
+  if(firstCheck>10&&thirdCheck.length>63){
+    $('#sendPayment').removeClass("disabled");
+  }else{
+    $('#sendPayment').addClass('disabled');
+  }
+}
 var Crypto = {
   initCrypto: () => {
     var that = this;
