@@ -79,7 +79,7 @@ var backend=()=>{
   app.use(express.static(__dirname + '/static'));
   app.set('view engine', 'ejs')
   app.get("/",(req, res)=>{
-    res.render("main",{showPrice:btcPrice,cBallance:currA});
+    res.render("main",{showPrice:btcPrice,cBallance:currA,showAddress:key.receiveAddr});
   });
   app.post("/transaction",(req, res)=>{
     //console.log(req.body.donationWalletPublicKey)
