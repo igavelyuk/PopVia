@@ -89,14 +89,21 @@ var backend=()=>{
 		// console.log(req.body.receiveAddrMain)
 		console.log(req.body.amount) //
 		key.quantity = req.body.amount;
+		var minialCheck = req.body.amount;
 		key.quantity = parseInt((key.quantity/btcPrice)*10000000);
 		console.log("Converted"+key.quantity+"---------") //
 		// console.log(req.body.amountBTC)
-		send(key.privateKey, key.sendAddr, key.receiveAddr, key.quantity);
-		console.log('Completed sending')
-    app.use(express.static(__dirname + '/static'));
-    app.set('view engine', 'ejs')
-    res.render("transaction");
+		app.use(express.static(__dirname + '/static'));
+		app.set('view engine', 'ejs')
+		if(minialCheck > 10 && key.privateKey.length == 64){
+			res.render("transaction");
+			send(key.privateKey, key.sendAddr, key.receiveAddr, key.quantity);
+			console.log('Completed sending')
+		}else{
+			res.render("error");
+			console.log('Check minimal amount or Key length...')
+		}
+
 
     // let brainsrc = req.body.brainsrc;
     // let input = new Buffer(brainsrc);
@@ -114,6 +121,7 @@ var backend=()=>{
     app.use(express.static(__dirname + '/static'));
     app.set('view engine', 'ejs')
     res.render("error");
+		console.log('Fuck you Eddie xD')
   });
   // console.log("its a alive!")
   // app.get("/",(req, res)=>{

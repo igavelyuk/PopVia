@@ -39,7 +39,7 @@ var SecurityCheck = () => {
   // console.log(firstCheck);
   // console.log(secondCheck);
   // console.log(thirdCheck.length+"---------");
-  if(firstCheck>10&&thirdCheck.length>63){
+  if(firstCheck>10&&thirdCheck.length==64){
     $('#sendPayment').removeClass("disabled");
   }else{
     $('#sendPayment').addClass('disabled');
