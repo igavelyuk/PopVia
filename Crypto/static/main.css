@@ -1,8 +1,15 @@
 .text-white{
   color:#fff;
 }
-.background-header{
-  background-color: #4CAF50;
+.app-header{
+  background-color: #388e3c;
+  border-radius: 8px 8px 0 0;
+  padding: 5%;
+}
+.rounded-container-bottom{
+  background-color: #e8f5e9;
+  border-radius: 0 0 8px 8px;
+  padding: 5%;
 }
 .margin-auto{
   margin:auto;
