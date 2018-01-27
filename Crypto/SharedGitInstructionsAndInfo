@@ -1,0 +1,2 @@
+eec@eec-ThinkPad-T510:~$ ssh-keygen -t rsa -C "MoonYellowGaugeRabbitNext"
+

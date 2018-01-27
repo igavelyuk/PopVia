@@ -1,6 +1,8 @@
-# Server install and test
+# CryptTwo install and test
+## Codename: MeteorPurpleCryptoRabbitServer 
 ## Installation and instructions
 ### Just to not forget some small things and to avoid extra time to find and fix
+[![Waffle.io - Columns and their card count](https://badge.waffle.io/736c7c74ac966777a078a1394df6810005fcfa8510528f063a24328f389a50eb.svg?columns=all)](https://waffle.io/popvia/MeteorPurpleCryptoRabbit)
 
 #### 1.Dev environment
  * Node.js

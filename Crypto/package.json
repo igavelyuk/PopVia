@@ -8,6 +8,18 @@
     "lint": "^1.1.2",
     "request": "^2.83.0"
   },
+  "engine": {
+      "node": "*",
+      "npm": "*"
+  },
+  "scripts": {
+      "dev": "nodemon --ignore node_modules/ index.js",
+      "start": "node index.js"
+  },
+  "keywords": [
+      "Test CryptTwo"
+  ],
+  "license": "",
   "name": "Cripto",
   "version": "1.0.0",
   "description": "Bitcoin donate manager",
